@@ -3,7 +3,7 @@ package app.config;
 import app.model.Animal;
 import app.model.Cat;
 import app.model.Dog;
-import org.springframework.beans.factory.annotation.Autowired;
+import app.model.Timer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -27,9 +27,13 @@ public class AppConfig {
         return    dog;
     }
     @Scope
-    @Bean(name = "Animal")
+    @Bean(name = "animal")
     public Animal getAnimal(){
         return new Dog();
+    }
+    @Bean(name = "timer")
+    public Long getTimer(){
+        return new Timer().getTime();
     }
 
 }
